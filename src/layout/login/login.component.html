@@ -1,0 +1,38 @@
+<div class="wrapper">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div class="input">
+      <div class="label">Username</div>
+      <input placeholder="User name or email"
+        [formControlName]="'username'" type="text">
+
+      <div class="label">Password</div>
+      <input type="password" placeholder="min 3 digit" formControlName="password">
+
+
+    </div>
+
+    <button>submit</button>
+  </form>
+  <div>
+    {{formGroup.valid}}
+    {{formGroup.value|json}}
+  </div>
+  <!-- DO NOT USE UNLESS YOU ARE IN CLASS -->
+  <!--  <form #loginForm="ngForm">-->
+
+  <!--    <div class="label">User name</div>-->
+  <!--    <input [(ngModel)]="user.username" required minlength="3" name="username" type="text">-->
+
+  <!--    <div class="label">Password</div>-->
+  <!--    <input [(ngModel)]="user.password" required type="password" name="password">-->
+
+  <!--    <button type="submit" (click)="onSubmit(user)"-->
+  <!--            [disabled]="!loginForm.form.valid">Submit</button>-->
+  <!--    <button (click)="print(loginForm.form)">Submit any way</button>-->
+  <!--    <button (click)="loginForm.reset();resetFormTopServer()">Reset</button>-->
+
+  <!--  </form>-->
+
+  {{user|json}}
+</div>
+

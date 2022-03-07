@@ -1,0 +1,8 @@
+:host{
+
+  .ng-touched{
+    &.ng-touched{
+      border: red solid 1px;
+    }
+  }
+}

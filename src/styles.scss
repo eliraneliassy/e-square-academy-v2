@@ -5,4 +5,8 @@ button{
   border-radius: 10px;
   background: brown;
   color: white;
+  &[disabled]{
+
+  background: #865e5e;
+  }
 }

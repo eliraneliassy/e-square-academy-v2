@@ -10,7 +10,6 @@ const routes: Routes = [
   {path: 'home', component:HomeComponent},
   {path: '404', component:HomeComponent},
   {path: 'cart', component:CartComponent},
-  {path: '**', redirectTo: '404'},
 ];
 
 @NgModule({
