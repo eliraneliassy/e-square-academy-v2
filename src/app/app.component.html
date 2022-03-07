@@ -1,21 +1,6 @@
 <div class="container">
-
-  <div class="cart">
-    <h2>My shopping cart:</h2>
-    <app-item *ngFor="let item of shoppingCart" [item]="item"
-    (removeFromCart)="removeFromCart($event)"
-    [existInCart]="existInCart(item.id)"
-    ></app-item>
-  </div>
-
-  <hr>
-
-  <div class="feed">
-    <h2>Feed of products:</h2>
-    <app-item *ngFor="let item of items" [item]="item"
-    (addToCart)="addToCart($event)"
-    [existInCart]="existInCart(item.id)"
-    ></app-item>
-  </div>
-  
+  <app-tool-bar></app-tool-bar>
+  <router-outlet></router-outlet>
 </div>
+
+
