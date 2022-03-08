@@ -2,7 +2,7 @@ import { Item } from './../item.interface';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-item',
+  selector: 'app-item[item]',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss']
 })
