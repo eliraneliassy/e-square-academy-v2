@@ -7,8 +7,8 @@ import {ItemComponent} from './item/item.component';
 import {FeedComponent} from "./feed/feed.component";
 import {CartComponent} from './cart/cart.component';
 import {HomeComponent} from './home/home.component';
-import {ToolBarComponent} from './tool-bar/tool-bar.component';
 import {LoginModule} from "../layout/login/login.module";
+import {LayoutModule} from "./layout/layout.module";
 
 @NgModule({
   declarations: [
@@ -17,12 +17,12 @@ import {LoginModule} from "../layout/login/login.module";
     FeedComponent,
     CartComponent,
     HomeComponent,
-    ToolBarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LoginModule
+    LoginModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

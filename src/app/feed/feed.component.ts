@@ -5,6 +5,8 @@ import {StateService} from "../service/state.service";
 @Component({
   selector: 'my-feed',
   template: `
+    <div class="wrapper">
+
     <ng-container *ngFor="let item of items">
       <app-item class=""
                 [item]="item"
@@ -13,8 +15,13 @@ import {StateService} from "../service/state.service";
       ></app-item>
 
     </ng-container>
+    </div>
   `,
   styles: [`
+    .wrapper{
+      display: flex;
+      flex-wrap: wrap;
+    }
     div {
       outline: red solid 2px;
     }

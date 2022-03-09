@@ -1,0 +1,39 @@
+:host {
+  .wrapper {
+    display: grid;
+    //grid-template-columns: repeat(auto-fill, minmax(200px, 1fr) );
+    grid-template-columns: 2fr 5fr 2fr;
+    //grid-template-columns: repeat(3, 1fr);
+    //grid-template-rows: 1fr 2fr 3fr;
+    row-gap: 10px;
+    place-content: center;
+    width: 80vw;
+    //display: flex;
+    //flex-wrap: wrap;
+    column-gap: 10px;
+
+    .tile {
+      height: 100px;
+      font-size: xx-large;
+      color: darkblue;
+      background: lightcyan;
+      display: grid;
+      place-content: center;
+      border: solid darkblue 2px;
+      &[title='t-1']{
+        background: yellow;
+        grid-column-start: 3;
+
+      }
+      &[title='t-4']{
+        background: darkmagenta;
+        color: white;
+      }
+      &[title='t-7']{
+        grid-column-start: 2;
+        grid-column-end: -2;
+      }
+
+    }
+  }
+}

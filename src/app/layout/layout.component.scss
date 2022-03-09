@@ -1,0 +1,25 @@
+@import "global";
+:host {
+  display: grid;
+  background: yellow;
+  height: 100vh;
+
+  background: rgb(236, 255, 228);
+  background: linear-gradient(90deg, rgba(236, 255, 228, 1) 2%, rgba(173, 181, 172, 0.6629026610644257) 35%, rgba(210, 252, 209, 1) 100%);
+
+  grid-template:
+    "nav-bar nav-bar" auto
+    "side-bar content" 1fr
+    "side-bar content" 1fr
+    / 100px 1fr;
+  app-nav-bar{
+    grid-area: nav-bar;
+  }
+  app-side-bar{
+    grid-area: side-bar;
+  }
+  .content{
+    height: $content-height;
+    overflow: auto;
+  }
+}

@@ -1,0 +1,42 @@
+@import "mixin";
+$color-primary: #faaca5;
+$sub-title: #f26a76;
+$sidebar-color-primary: #f5cec9;
+$btn-color-border: #f5cec9;
+$color-second: #eebf03;
+$gray-background: #f4f4f4;
+$gray-dot:#c4c4c4;
+$white-title: #c8d8ff;
+$white: #ffffff;
+
+$nav-bar-height: 100px;
+$content-height: calc(100vh - #{$nav-bar-height});
+
+$arr: 1 2 3 4 5 6 7 8 9 10;
+@each $size in $arr {
+  .mrg-t-#{$size} {
+    margin-top: times8($size);
+  }
+  .mrg-b-#{$size} {
+    margin-bottom: times8($size);
+  }
+  .mrg-l-#{$size} {
+    margin-left: times8($size);
+  }
+  .mrg-#{$size} {
+    margin: times8($size);
+  }
+  .grd-col-#{$size} {
+    display: grid;
+    grid-template-columns: repeat($size, auto);
+  }
+  .grd-gap-#{$size} {
+    grid-gap: times8($size);
+  }
+  .app-col-gap-#{$size} {
+    column-gap: times8($size);
+  }
+  .app-row-gap-#{$size} {
+    row-gap: times8($size);
+  }
+}

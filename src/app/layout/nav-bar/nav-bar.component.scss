@@ -1,0 +1,67 @@
+@import "global";
+@import "mixin";
+
+:host {
+  font-size: 20px;
+
+  .top {
+    padding: 0 20px;
+    height: $nav-bar-height;
+    display: grid;
+    place-content: center space-between;
+    grid-template-columns: repeat(2,1fr);
+    background: rgb(222, 222, 222);
+    background: linear-gradient(184deg, rgba(222, 222, 222, 1) 2%, rgba(150, 150, 150, 1) 100%);
+    border-radius: 0 10px;
+
+    .start {
+      display: flex;
+
+      .nav {
+        position: relative;
+        display: grid;
+        place-content: center;
+        width: 100px;
+        cursor: pointer;
+        transition: all ease-in-out .2s;
+
+        &:hover {
+          .line {
+            width: 90px;
+          }
+        }
+
+        &.active {
+          .line {
+            background: yellow;
+            width: 90px;
+          }
+        }
+
+        a {
+          text-transform: uppercase;
+          text-decoration: none;
+          color: black;
+          font-weight: bold;
+        }
+
+        .line {
+          position: absolute;
+          bottom: -10px;
+          height: 8px;
+          background: #000000;
+          width: times8(2.5);
+          transition: all ease-in-out .2s;
+
+        }
+      }
+
+    }
+
+    .end {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      place-content: center;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+$bpoint-pc: 1440px;
+$bpoint-min-tablet: 770px;
+$bpoint-tablet-landscape: 1024px;
+$bpoint-tablet: 768px;
+$bpoint-mobile: 600px;
+
+
+
+
+
+
+@media (min-width: $bpoint-pc) {
+  .mobile{
+    display: none;
+  }
+}
+@media (max-width: $bpoint-tablet) {
+}
+@media (max-width: $bpoint-tablet-landscape) {
+}
+@media (max-width: $bpoint-mobile) {
+  .pc{
+    display: none;
+  }
+  .mobile{
+    display: block;
+  }
+}
