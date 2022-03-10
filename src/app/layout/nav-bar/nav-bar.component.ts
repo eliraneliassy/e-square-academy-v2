@@ -1,16 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {StateService} from "../service/state.service";
+import {StateService} from "../../service/state.service";
+import {ILink} from "./nav-bar.interface";
 
-export interface ILink{
-  path?:string;
-  label?:string;
-}
 @Component({
-  selector: 'app-tool-bar',
-  templateUrl: './tool-bar.component.html',
-  styleUrls: ['./tool-bar.component.scss']
+  selector: 'app-nav-bar',
+  templateUrl: './nav-bar.component.html',
+  styleUrls: ['./nav-bar.component.scss']
 })
-export class ToolBarComponent implements OnInit {
+export class NavBarComponent implements OnInit {
 
   public get count(): number {
     return this.state.shoppingCart?.length || 0;

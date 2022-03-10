@@ -1,0 +1,6 @@
+@import "global";
+:host {
+  display: block;
+  height: $content-height;
+  background: darkblue;
+}
