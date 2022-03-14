@@ -12,12 +12,15 @@ $white: #ffffff;
 $nav-bar-height: 100px;
 $content-height: calc(100vh - #{$nav-bar-height});
 
-$arr: 1 2 3 4 5 6 7 8 9 10;
+$arr: 1 2 3 4 5 6 7 8 9 10 16;
 @each $size in $arr {
   .mrg-t-#{$size} {
     margin-top: times8($size);
   }
-  .mrg-b-#{$size} {
+  .mrg-x-#{$size} {
+    margin-bottom: times8($size);
+    margin-top: times8($size);
+  }.mrg-b-#{$size} {
     margin-bottom: times8($size);
   }
   .mrg-l-#{$size} {

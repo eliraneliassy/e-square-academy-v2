@@ -4,6 +4,7 @@ import {FeedComponent} from "./feed/feed.component";
 import {CartComponent} from "./cart/cart.component";
 import {HomeComponent} from "./home/home.component";
 import {PostsComponent} from "./posts/posts.component";
+import {CountriesComponent} from "./countries/countries.component";
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'feed'},
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path: 'home', component:HomeComponent},
   {path: '404', component:HomeComponent},
   {path: 'cart', component:CartComponent},
-  {path: 'posts', component: PostsComponent}
+  {path: 'posts', component: PostsComponent},
+  {path: 'countries', component: CountriesComponent}
 ];
 
 @NgModule({
