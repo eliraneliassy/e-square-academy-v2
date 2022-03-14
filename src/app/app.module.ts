@@ -9,6 +9,8 @@ import {CartComponent} from './cart/cart.component';
 import {HomeComponent} from './home/home.component';
 import {LoginModule} from "../layout/login/login.module";
 import {LayoutModule} from "./layout/layout.module";
+import { PostsComponent } from './posts/posts.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import {LayoutModule} from "./layout/layout.module";
     FeedComponent,
     CartComponent,
     HomeComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LoginModule,
-    LayoutModule
+    LayoutModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
