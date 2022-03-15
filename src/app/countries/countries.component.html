@@ -1,0 +1,10 @@
+<div class="filter mrg-x-4" >
+  Filter
+  <input type="text" [formControl]="filterForm">
+
+</div>
+<ag-grid-angular
+  class="ag-theme-alpine"
+  [rowData]="searchData$ | async"
+  [columnDefs]="columnDefs">
+</ag-grid-angular>

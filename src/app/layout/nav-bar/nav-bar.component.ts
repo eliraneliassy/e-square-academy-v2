@@ -16,7 +16,8 @@ export class NavBarComponent implements OnInit {
     {path: 'feed', label: 'feed'},
     {path: 'cart', label: 'cart'},
     {path: 'home', label: 'home'},
-    {path: 'posts', label: 'posts'}
+    {path: 'posts', label: 'posts'},
+    {path: 'countries', label: 'countries'}
   ]
   constructor(private state:StateService) { }
 

@@ -11,6 +11,9 @@ import {LoginModule} from "../layout/login/login.module";
 import {LayoutModule} from "./layout/layout.module";
 import { PostsComponent } from './posts/posts.component';
 import {HttpClientModule} from "@angular/common/http";
+import { CountriesComponent } from './countries/countries.component';
+import {AgGridModule} from "ag-grid-angular";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,13 +23,16 @@ import {HttpClientModule} from "@angular/common/http";
     CartComponent,
     HomeComponent,
     PostsComponent,
+    CountriesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LoginModule,
     LayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    AgGridModule.withComponents([])
   ],
   providers: [],
   bootstrap: [AppComponent]

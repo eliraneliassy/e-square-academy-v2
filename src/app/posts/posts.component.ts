@@ -25,7 +25,7 @@ export class PostsComponent implements OnDestroy, OnInit{
 
   searchSubject$ = new Subject<string>();
 
-  subscription: Subscription;
+  subscription?: Subscription;
 
   constructor(private postsService: PostsService) {
     this.postsService.getPosts().subscribe((posts: Post[]) => {
@@ -54,7 +54,7 @@ export class PostsComponent implements OnDestroy, OnInit{
   }
 
   ngOnDestroy(): void {
-        this.subscription.unsubscribe();
+        this.subscription?.unsubscribe();
     }
 
   search(event : any){
