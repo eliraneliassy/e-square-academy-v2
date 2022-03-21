@@ -13,7 +13,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild([{path: 'login', component: LoginComponent}])
+    RouterModule.forChild([{path: '', component: LoginComponent}])
   ]
 })
 export class LoginModule {

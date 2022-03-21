@@ -14,13 +14,11 @@ import {HttpClientModule} from "@angular/common/http";
 import { CountriesComponent } from './countries/countries.component';
 import {AgGridModule} from "ag-grid-angular";
 import {ReactiveFormsModule} from "@angular/forms";
+import {ItemModule} from "./item/item.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemComponent,
-    FeedComponent,
-    CartComponent,
     HomeComponent,
     PostsComponent,
     CountriesComponent,
@@ -32,6 +30,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     LayoutModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ItemModule,
     AgGridModule.withComponents([])
   ],
   providers: [],
