@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
 import {Item} from "../item.interface";
 import {StateService} from "../service/state.service";
+import {CartService} from "../cart.service";
 
 @Component({
   selector: 'my-feed',
@@ -42,7 +43,7 @@ export class FeedComponent implements OnInit {
     return this.state.allItems;
   }
 
-  constructor(private state: StateService) {
+  constructor(private state: StateService, private cartService: CartService) {
   }
 
   ngOnInit() {
@@ -50,7 +51,9 @@ export class FeedComponent implements OnInit {
   }
 
   addToCart(item: Item) {
-    console.log('ITEM', item);
-    this.state.addToCart(item);
+    // console.log('ITEM', item);
+    // this.state.addToCart(item);
+
+    this.cartService.addToCart(item);
   }
 }

@@ -5,10 +5,13 @@ import {CartComponent} from "./cart/cart.component";
 import {HomeComponent} from "./home/home.component";
 import {PostsComponent} from "./posts/posts.component";
 import {CountriesComponent} from "./countries/countries.component";
+import {LoginComponent} from "../layout/login/login.component";
+import {AuthGuard} from "./auth.guard";
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'feed'},
-  {path: 'feed', component:FeedComponent},
+  {path: '', pathMatch: 'full', redirectTo: 'login'},
+  {path:'login', component: LoginComponent},
+  {path: 'feed', component:FeedComponent, canActivate: [AuthGuard]},
   {path: 'home', component:HomeComponent},
   {path: '404', component:HomeComponent},
   {path: 'cart', component:CartComponent},
