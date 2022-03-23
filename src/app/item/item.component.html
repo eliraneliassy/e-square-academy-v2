@@ -1,10 +1,26 @@
 <div class="item" *ngIf="item">
-  <div class="title">{{ item.title }}</div>
-  <img [src]="item.imgUrl" />
-  <div class="description">
+  <div [ngClass]="classes">{{ item.title }}</div>
+  <img [ngStyle]="{ width: imageSize }" [src]="item.imgUrl" />
+  <div appHighlight class="description">
     {{ item.description }}
   </div>
   <div class="price">{{ item.price | currency }}</div>
-  <button (click)="onAddToCart()" *ngIf="!existInCart">Add to cart</button>
-  <button (click)="onRemoveFromCart()" *ngIf="existInCart">Remove From Cart</button>
+  <button (click)="onRemoveFromCart()" *ngIf="existInCart; else existInCartElement">Remove From Cart</button>
+  <ng-template #existInCartElement>
+    <button (click)="onAddToCart()" *ngIf="!existInCart">Add to cart</button>
+  </ng-template>
 </div>
+
+<div *appPermission="'view:product'">
+  <button>Add Product</button>
+</div>
+
+<!--<div *myDirective="item">-->
+<!--  <p>item</p>-->
+<!--</div>-->
+
+<!--<ng-template [myDirective]="item">-->
+<!--  <div>-->
+<!--    <p>item</p>-->
+<!--  </div>-->
+<!--</ng-template>-->

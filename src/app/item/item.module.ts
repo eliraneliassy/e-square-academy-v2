@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HighlightModule } from '../shared/highlight/highlight.module';
 import {ItemComponent} from "./item.component";
 
 
@@ -12,7 +14,9 @@ import {ItemComponent} from "./item.component";
     ItemComponent
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    HighlightModule,
+    FormsModule,
+  ],
 })
 export class ItemModule { }

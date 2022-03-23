@@ -1,5 +1,12 @@
 import { Item } from './../item.interface';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  HostListener, HostBinding,
+} from '@angular/core';
 
 @Component({
   selector: 'app-item[item]',
@@ -7,11 +14,18 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
+  @HostBinding('class') stamClass = 'stam';
 
   @Input() item: Item | null = null;
   @Input() existInCart: boolean = false;
   @Output() addToCart: EventEmitter<Item> = new EventEmitter<Item>();
   @Output() removeFromCart: EventEmitter<Item> = new EventEmitter<Item>();
+
+  classes = {
+    'title': false
+  };
+
+  imageSize = '100px';
 
   constructor() { }
 
