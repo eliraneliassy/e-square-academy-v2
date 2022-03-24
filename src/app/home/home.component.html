@@ -3,3 +3,19 @@
   <div class="tile" [title]="'t-'+tile"
        *ngFor="let tile of tiles">{{tile}}</div>
 </div>
+
+<div>
+  <input [(ngModel)]="name" />
+
+  <ng-container [ngSwitch]="name">
+    <div *ngSwitchCase="'aviv'">
+      hi from aviv
+    </div>
+    <div *ngSwitchCase="'eliran'">
+      hi from eliran
+    </div>
+    <div *ngSwitchDefault>
+      hi from default
+    </div>
+  </ng-container>
+</div>

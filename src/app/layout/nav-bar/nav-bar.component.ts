@@ -21,6 +21,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
   links: ILink[] = [
     {path: 'feed', label: 'feed'},
     {path: 'cart', label: 'cart'},
+    {path: 'life-cycles', label: 'life cycles'},
     {path: 'home', label: 'home'},
     {path: 'posts', label: 'posts'},
     {path: 'countries', label: 'countries'}

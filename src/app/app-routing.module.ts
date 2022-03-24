@@ -14,6 +14,7 @@ const routes: Routes = [
   // {path: 'feed', component:FeedComponent},
   {path: 'feed', loadChildren: () => import('./feed/feed.module').then(m => m.FeedModule)},
   {path: 'login', loadChildren: () => import('../layout/login/login.module').then(m => m.LoginModule)},
+  {path: 'life-cycles', loadChildren: () => import('./life-cycles/life-cycles.module').then(m => m.LifeCyclesModule)},
   {path: 'home', component:HomeComponent},
   {path: '404', component:HomeComponent},
   // {path: 'cart', component:CartComponent},
