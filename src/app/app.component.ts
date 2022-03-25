@@ -1,4 +1,3 @@
-import { Item } from './item.interface';
 import { Component } from '@angular/core';
 
 @Component({

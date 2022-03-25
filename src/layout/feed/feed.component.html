@@ -1,0 +1,11 @@
+<div class="wrapper">
+
+    <ng-container *ngFor="let item of items">
+      <app-item
+                [item]="item"
+                [existInCart]="false"
+                (addToCart)="addToCart($event)"
+      ></app-item>
+
+    </ng-container>
+    </div>

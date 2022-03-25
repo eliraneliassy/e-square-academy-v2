@@ -1,0 +1,9 @@
+<ng-container *ngFor="let item of cart">
+    <app-item class=""
+              [item]="item"
+              [existInCart]="true"
+              (removeFromCart)="removeFromCart($event)"
+    ></app-item>
+  
+  </ng-container>
+  

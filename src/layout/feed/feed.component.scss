@@ -1,0 +1,17 @@
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  div {
+    outline: red solid 2px;
+  }
+
+  .wrapper {
+    background: #d4d2d2;
+
+  }
+
+  .in-cart {
+    outline: green solid 3px;
+  }

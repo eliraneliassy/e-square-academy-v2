@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { AuthService } from 'src/app/service/auth/auth.service';
 
 export interface IUser {
   username: string;
@@ -17,12 +18,15 @@ export class LoginComponent implements OnInit {
     username: new FormControl(undefined,[Validators.required]),
     password: new FormControl(undefined,Validators.compose([Validators.required,Validators.minLength(4)]))
   });
+
   user: IUser = {
-    username: 'yonatan@yaltman.com',
-    password: ''
+    username: 'livetotell',
+    password: '1234'
   };
 
-  constructor() {
+  status: boolean = false;
+
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -35,7 +39,11 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     console.log(this.formGroup.value)
     if(this.formGroup.valid){
-      // go to server
+      this.status = false;
+      if(this.user.username === this.formGroup.value['username'] && this.user.password === this.formGroup.value['password']){
+        this.status = true;
+      }
+      this.authService.login(this.formGroup.value['username'], this.status)
     }else {
       // error
       console.error('Form is not valid')
