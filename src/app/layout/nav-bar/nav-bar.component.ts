@@ -4,6 +4,7 @@ import {ILink} from "./nav-bar.interface";
 import {AuthService} from "../../auth.service";
 import {catchError, combineLatest, map, Observable, of, Subscription} from "rxjs";
 import {CartQuery} from "../../cart/state/cart.query";
+import {AuthQuery} from "../../../layout/login/state/auth.query";
 
 @Component({
   selector: 'app-nav-bar',
@@ -22,7 +23,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
 
   numInCart$: Observable<number>;
 
-  viewObj$;
+  viewObj$: Observable<{userName: string | null, numInCart: number}>;
 
   links: ILink[] = [
     {path: 'feed', label: 'feed'},
@@ -35,10 +36,13 @@ export class NavBarComponent implements OnInit, OnDestroy {
   constructor(
     private state:StateService,
     private authServie: AuthService,
-    private cartQuery: CartQuery) {
-    this.userName$ = this.authServie.getUser().pipe(
-      catchError(() => of('Aviv'))
-    );
+    private cartQuery: CartQuery,
+    private authQuery: AuthQuery) {
+    // this.userName$ = this.authServie.getUser().pipe(
+    //   catchError(() => of('Aviv'))
+    // );
+
+    this.userName$ = this.authQuery.selectName$;
 
     this.numInCart$ = this.cartQuery.selectNumItemsInCart$;
 
