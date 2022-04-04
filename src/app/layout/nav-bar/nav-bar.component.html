@@ -10,7 +10,7 @@
   <div class="end">
 
 
-    <div class="user center" *ngIf="userName">
+    <div class="user center" *ngIf="userName$ | async as userName">
       Hello {{userName}}!
     </div>
     <div class="cart">

@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Post} from "./posts/post.interface";
 import {Observable, of} from "rxjs";
+import {environment} from "../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
 
-  BASE_URL = `https://jsonplaceholder.typicode.com`;
+  BASE_URL = environment.postsApi;
 
   constructor(private httpClient: HttpClient) { }
 

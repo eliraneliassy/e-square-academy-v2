@@ -1,13 +1,14 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {StateService} from "../../service/state.service";
 import {ILink} from "./nav-bar.interface";
 import {AuthService} from "../../auth.service";
-import {Subscription} from "rxjs";
+import {catchError, combineLatest, Observable, of, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+  styleUrls: ['./nav-bar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavBarComponent implements OnInit, OnDestroy {
 
@@ -15,7 +16,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
     return this.state.shoppingCart?.length || 0;
   }
 
-  userName: string | null = null;
+  userName$: Observable<string | null>;
   subscription: Subscription = new Subscription();
 
   links: ILink[] = [
@@ -26,14 +27,20 @@ export class NavBarComponent implements OnInit, OnDestroy {
     {path: 'posts', label: 'posts'},
     {path: 'countries', label: 'countries'}
   ]
-  constructor(private state:StateService, private authServie: AuthService) { }
+  constructor(private state:StateService, private authServie: AuthService) {
+    this.userName$ = this.authServie.getUser().pipe(
+      catchError(() => of('Aviv'))
+    );
+  }
+
 
   ngOnInit(): void {
-    this.subscription = this.authServie.getUser().subscribe(user => this.userName = user);
+
+    // this.subscription = this.authServie.getUser().subscribe(user => this.userName = user);
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
 
 
