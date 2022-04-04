@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Item} from "../item.interface";
 
-const ITEMS: Item[] = [
+export const ITEMS: Item[] = [
   {
     id: 1,
     title: 'Sony PS5',

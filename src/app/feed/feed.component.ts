@@ -3,6 +3,8 @@ import {Item} from "../item.interface";
 import {StateService} from "../service/state.service";
 import {CartService} from "../cart.service";
 import {CartState, CartStore} from "../cart/state/cart.store";
+import {FeedQuery} from "./state/feed.query";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'my-feed',
@@ -11,7 +13,7 @@ import {CartState, CartStore} from "../cart/state/cart.store";
 
 <!--    <div class="wrapper" *appPermission="permission">-->
 
-    <ng-container *ngFor="let item of items">
+    <ng-container *ngFor="let item of items$ | async">
       <app-item class=""
                 [item]="item"
                 [existInCart]="false"
@@ -43,14 +45,19 @@ import {CartState, CartStore} from "../cart/state/cart.store";
 export class FeedComponent implements OnInit {
   permission = '';
 
-  public get items(): Item[] {
-    return this.state.allItems;
-  }
+  // public get items(): Item[] {
+  //   // return this.state.allItems;
+  //
+  // }
+
+  items$: Observable<Item[]>
 
   constructor(
               private state: StateService,
               private cartService: CartService,
-              private cartStore: CartStore) {
+              private cartStore: CartStore,
+              private feedQuery: FeedQuery) {
+    this.items$ = this.feedQuery.selectItems$;
   }
 
   ngOnInit() {

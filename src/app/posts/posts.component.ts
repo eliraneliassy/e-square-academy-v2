@@ -9,7 +9,7 @@ import {
   Observable, of,
   Subject,
   Subscription,
-  switchMap,
+  switchMap, tap,
   timer
 } from "rxjs";
 
@@ -44,7 +44,9 @@ export class PostsComponent implements OnDestroy, OnInit{
       .pipe(
         debounceTime(300),
         distinctUntilChanged(),
+        tap((value) => console.log('before switchMap value is', value)),
         switchMap((term: string) => this.postsService.search(term)),
+        tap((value) => console.log('After switchMap value is', value)),
       )
       .subscribe(
         (obj: any) => {
