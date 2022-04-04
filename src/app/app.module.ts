@@ -15,6 +15,10 @@ import { CountriesComponent } from './countries/countries.component';
 import {AgGridModule} from "ag-grid-angular";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ItemModule} from "./item/item.module";
+import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -33,8 +37,10 @@ import {ItemModule} from "./item/item.module";
     ItemModule,
     AgGridModule.withComponents([]),
     FormsModule,
+    environment.production ? [] : AkitaNgDevtools.forRoot(),
+    AkitaNgRouterStoreModule,
   ],
-  providers: [],
+  providers: [{ provide: NG_ENTITY_SERVICE_CONFIG, useValue: { baseUrl: 'https://jsonplaceholder.typicode.com' }}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

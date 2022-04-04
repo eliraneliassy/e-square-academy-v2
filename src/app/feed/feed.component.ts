@@ -2,13 +2,14 @@ import {Component, OnDestroy, OnInit} from "@angular/core";
 import {Item} from "../item.interface";
 import {StateService} from "../service/state.service";
 import {CartService} from "../cart.service";
+import {CartState, CartStore} from "../cart/state/cart.store";
 
 @Component({
   selector: 'my-feed',
   template: `
     <input [(ngModel)]="permission" />
 
-    <div class="wrapper" *appPermission="permission">
+<!--    <div class="wrapper" *appPermission="permission">-->
 
     <ng-container *ngFor="let item of items">
       <app-item class=""
@@ -18,7 +19,7 @@ import {CartService} from "../cart.service";
       ></app-item>
 
     </ng-container>
-    </div>
+<!--    </div>-->
   `,
   styles: [`
     .wrapper{
@@ -46,7 +47,10 @@ export class FeedComponent implements OnInit {
     return this.state.allItems;
   }
 
-  constructor(private state: StateService, private cartService: CartService) {
+  constructor(
+              private state: StateService,
+              private cartService: CartService,
+              private cartStore: CartStore) {
   }
 
   ngOnInit() {
@@ -58,5 +62,8 @@ export class FeedComponent implements OnInit {
     // this.state.addToCart(item);
 
     this.cartService.addToCart(item);
+
+
+
   }
 }

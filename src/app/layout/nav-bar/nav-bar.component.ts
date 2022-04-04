@@ -2,7 +2,8 @@ import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/co
 import {StateService} from "../../service/state.service";
 import {ILink} from "./nav-bar.interface";
 import {AuthService} from "../../auth.service";
-import {catchError, combineLatest, Observable, of, Subscription} from "rxjs";
+import {catchError, combineLatest, map, Observable, of, Subscription} from "rxjs";
+import {CartQuery} from "../../cart/state/cart.query";
 
 @Component({
   selector: 'app-nav-bar',
@@ -19,6 +20,10 @@ export class NavBarComponent implements OnInit, OnDestroy {
   userName$: Observable<string | null>;
   subscription: Subscription = new Subscription();
 
+  numInCart$: Observable<number>;
+
+  viewObj$;
+
   links: ILink[] = [
     {path: 'feed', label: 'feed'},
     {path: 'cart', label: 'cart'},
@@ -27,9 +32,21 @@ export class NavBarComponent implements OnInit, OnDestroy {
     {path: 'posts', label: 'posts'},
     {path: 'countries', label: 'countries'}
   ]
-  constructor(private state:StateService, private authServie: AuthService) {
+  constructor(
+    private state:StateService,
+    private authServie: AuthService,
+    private cartQuery: CartQuery) {
     this.userName$ = this.authServie.getUser().pipe(
       catchError(() => of('Aviv'))
+    );
+
+    this.numInCart$ = this.cartQuery.selectNumItemsInCart$;
+
+    this.viewObj$ = combineLatest([this.userName$, this.numInCart$]).pipe(
+      map(([userName, numInCart]: [string | null, number]) => ({
+        userName,
+        numInCart
+      }))
     );
   }
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Item} from "./item.interface";
 import {BehaviorSubject, findIndex, Observable} from "rxjs";
+import {CartState, CartStore} from "./cart/state/cart.store";
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +19,13 @@ export class CartService {
   }
 
   addToCart(item: Item) {
-    const currentCart = this.shoppingCart$.getValue();
-    const newCart = [...currentCart, item];
+    // const currentCart = this.shoppingCart$.getValue();
+    // const newCart = [...currentCart, item];
+    //
+    // //this.shoppingCart$.next(newCart);
+    // this.setShoppingCart(newCart);
 
-    //this.shoppingCart$.next(newCart);
-    this.setShoppingCart(newCart);
+    this.cartStore.update((currentState: CartState) => ({...currentState, shoppingCart: [...currentState.shoppingCart, item]}));
   }
 
   removeFromCart(item: Item){
@@ -35,5 +38,5 @@ export class CartService {
     }
   }
 
-  constructor() { }
+  constructor(private cartStore: CartStore) { }
 }
