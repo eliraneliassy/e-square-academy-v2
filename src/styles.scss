@@ -2,20 +2,21 @@
 @import "assets/styles/fonts";
 @import "assets/styles/global";
 @import "assets/styles/table";
+@import "assets/styles/theme";
 
 body{
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
 }
-button{
-  border-radius: 10px;
-  background: brown;
-  color: white;
-  &[disabled]{
-
-  background: #865e5e;
-  }
-}
+//button{
+//  border-radius: 10px;
+//  background: brown;
+//  color: white;
+//  &[disabled]{
+//
+//  background: #865e5e;
+//  }
+//}
 
 .center{
   display: grid;

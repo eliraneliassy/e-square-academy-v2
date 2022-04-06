@@ -11,8 +11,12 @@
   </ng-template>
 </div>
 
-<div *appPermission="'view:product'">
-  <button>Add Product</button>
+<!--<div *appPermission="'view:product'">-->
+<div>
+  <ac-button color="primary">Add Product</ac-button>
+  <ac-button [text]="'Add Product'" color="accent"></ac-button>
+  <ac-button [text]="'Add Product'"></ac-button>
+
 </div>
 
 <!--<div *myDirective="item">-->

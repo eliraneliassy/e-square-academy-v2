@@ -2,6 +2,16 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "academy-style": [
+        "dist/academy-style/academy-style",
+        "dist/academy-style",
+        "projects/academy-style/src/index.ts"
+      ],
+      "@academy-style": [
+        "projects/academy-style/src/index.ts"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

@@ -1,22 +1,23 @@
 <div class="wrapper">
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
     <div class="input">
-      <div class="label">Username</div>
-      <input placeholder="User name or email"
-        [formControlName]="'username'" type="text">
+<!--      <input placeholder="User name or email"-->
+<!--             [formControlName]="'username'" type="text">-->
+      <ac-input [config]="userNameConfig" [formControlName]="'username'"></ac-input>
 
-      <div class="label">Password</div>
-      <input type="password" placeholder="min 3 digit" formControlName="password">
+<!--      <div class="label">Password</div>-->
+<!--      <input type="password" placeholder="min 3 digit"-->
+<!--             formControlName="password">-->
+      <ac-input [config]="passwordConfig" [formControlName]="'password'"></ac-input>
 
-
+      <app-google-authenticator
+        formControlName="googleAuthenticator"></app-google-authenticator>
     </div>
 
-    <button>submit</button>
+    <button mat-raised-button color="primary">Submit</button>
+    <button mat-stroked-button color="accent" (click)="$event.preventDefault();formGroup.reset()">reset</button>
   </form>
-  <div>
-    {{formGroup.valid}}
-    {{formGroup.value|json}}
-  </div>
+
   <!-- DO NOT USE UNLESS YOU ARE IN CLASS -->
   <!--  <form #loginForm="ngForm">-->
 
@@ -33,6 +34,6 @@
 
   <!--  </form>-->
 
-  {{user|json}}
+  {{formGroup.value|json}}
 </div>
 

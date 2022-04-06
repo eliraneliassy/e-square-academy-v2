@@ -1,0 +1,31 @@
+<div class="wrapper mrg-y-2">
+  <form [formGroup]="form">
+    <div class="body" #formBody>
+    <ng-container *ngFor="let a of arr;let i = index">
+      <div class="tile tile-{{a}}">
+        <input
+          class="input-{{a}}"
+          [formControlName]="a"
+          (input)="next(i+1)"
+          (keydown)="onKeyDown($event)"
+          type="number">
+      </div>
+    </ng-container>
+    <!--  <div class="tile tile-2">-->
+    <!--    <input type="number">-->
+    <!--  </div>-->
+    <!--  <div class="tile tile-3">-->
+    <!--    <input type="number">-->
+    <!--  </div>-->
+    <!--  <div class="tile tile-4">-->
+    <!--    <input type="number">-->
+    <!--  </div>-->
+    <!--  <div class="tile tile-5">-->
+    <!--    <input type="number">-->
+    <!--  </div>-->
+    <!--  <div class="tile tile-6">-->
+    <!--    <input type="number">-->
+    <!--  </div>-->
+    </div>
+  </form>
+</div>
