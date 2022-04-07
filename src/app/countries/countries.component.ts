@@ -13,6 +13,7 @@ import {
   ReplaySubject,
   startWith, Subject, switchMap, takeUntil
 } from "rxjs";
+import {AcademyInputConfig} from "academy-style";
 
 @Component({
   selector: 'app-countries',
@@ -21,6 +22,9 @@ import {
 })
 export class CountriesComponent implements OnInit, OnDestroy {
   onDestroy$ = new Subject<void>();
+  filterConfig:AcademyInputConfig ={
+    label:'Filter'
+  }
   filterForm = new FormControl();
   filter$ = this.filterForm.valueChanges.pipe(
     debounceTime(300),

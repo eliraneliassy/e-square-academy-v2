@@ -1,0 +1,39 @@
+@import "../../../../../src/assets/styles/mixin";
+
+:host {
+  .wrapper {
+    .body {
+      display: flex;
+      column-gap: times8(2);
+
+
+      .tile {
+        width: 20px;
+        height: times8(3);
+        display: grid;
+        place-content: center;
+
+        input {
+          background: white;
+          width: 100%;
+          height: times8(3);
+          border: none;
+          text-align: center;
+
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+          -moz-appearance: textfield;
+        }
+      }
+    }
+  }
+}

@@ -4,6 +4,7 @@ import {LayoutComponent} from './layout.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import {RouterModule} from "@angular/router";
 import { SideBarComponent } from './side-bar/side-bar.component';
+import {AcademyButtonModule} from "academy-style";
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { SideBarComponent } from './side-bar/side-bar.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    AcademyButtonModule,
   ]
 })
 export class LayoutModule {
